@@ -1,0 +1,58 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>El Juego del Dinero</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-level="1">
+  <canvas id="particles"></canvas>
+  <main class="shell">
+    <section id="onboarding" class="onboarding">
+      <div class="brand"><span>$</span><div><p>Mundo financiero latinoamericano</p><h1>El Juego del Dinero</h1></div></div>
+      <p class="intro">Explora cinco mundos, supera zonas financieras, responde ante imprevistos y gana certificados por mundo.</p>
+      <form id="name-form" class="panel">
+        <label>Selecciona tu rango</label>
+        <div class="age-grid">
+          <button type="button" class="age active" data-onboard-level="1"><b>Niño</b><small>6-9 años</small></button>
+          <button type="button" class="age" data-onboard-level="2"><b>Adolescente</b><small>10-15 años</small></button>
+          <button type="button" class="age" data-onboard-level="3"><b>Adulto</b><small>Finanzas personales</small></button>
+          <button type="button" class="age" data-onboard-level="4"><b>Emprendedor</b><small>Negocio y ruta mujer</small></button>
+        </div>
+        <div id="companions" class="companions"></div>
+        <label for="player-name">Nombre del estudiante</label>
+        <div class="input-row"><input id="player-name" required maxlength="40" placeholder="Escribe tu nombre"><button>Entrar</button></div>
+        <p class="entry-note">El rango elegido abre su ruta correspondiente. Las demás rutas quedan cerradas para cuidar la progresión.</p>
+      </form>
+    </section>
+
+    <section id="game" class="hidden">
+      <header class="topbar">
+        <div class="brand small"><span>$</span><div><p>El Juego del Dinero</p><h2 id="welcome">Hola</h2></div></div>
+        <div class="stats"><div><b id="tokens">0</b><small>tokens</small></div><div><b id="done">0/50</b><small>zonas</small></div><div><b id="score">0%</b><small>último</small></div></div>
+        <div class="data-actions"><button id="family-mode" type="button">Juego familiar</button><button id="save-progress" type="button">Guardar avance</button></div>
+      </header>
+      <div id="firebase-status" class="firebase-status local">Avance listo para guardar</div>
+      <section id="route-lock" class="route-lock"></section>
+      <nav class="levels"><button data-level="1">Niño</button><button data-level="2">Adolescente</button><button data-level="3">Adulto</button><button data-level="4">Emprendedor</button></nav>
+      <nav id="entrepreneur-tabs" class="levels hidden"><button data-track="general">General</button><button data-track="woman">Mujer</button></nav>
+      <section class="world-layout">
+        <aside id="world-buttons" class="world-buttons"></aside>
+        <section class="map-panel">
+          <div class="map-head"><div><p id="world-region">Cono Sur</p><h2 id="world-title">El Hogar</h2></div><p id="world-description"></p></div>
+          <div id="map" class="map"></div>
+        </section>
+      </section>
+      <section id="family-game" class="family-game hidden"></section>
+    </section>
+  </main>
+
+  <dialog id="mission"><button class="close" id="close-mission">x</button><div id="mission-content"></div></dialog>
+  <dialog id="certificate"><button class="close" id="close-certificate">x</button><div id="certificate-content"></div></dialog>
+  <script src="firebase-config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
+
+
